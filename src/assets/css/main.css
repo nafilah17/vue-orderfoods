@@ -1,0 +1,61 @@
+#app {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.router-link-exact-active {
+    font-weight: bold;
+}
+
+
+/* .btn-primary {
+    background-color: #fcba03;
+    color: #ffffff;
+    border: 2px solid #fcba03;
+}
+
+.btn-primary:hover {
+    background-color: #ffeaad;
+    color: #7e5d00;
+} */
+
+.badge {
+    background-color: #fcba03;
+}
+
+.card-product {
+    border-radius: 15px;
+}
+
+.card-img-top {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    left: -1000%;
+    right: -1000%;
+    top: -1000%;
+    bottom: -1000%;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.card-header {
+    height: 170px;
+    overflow: hidden;
+    /* margin: 10px; */
+    position: relative;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb-item.active {
+    font-weight: bold;
+    color: #000000;
+}
+
+.img-fluid {
+    border-radius: 15px;
+}
