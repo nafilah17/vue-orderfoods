@@ -150,20 +150,25 @@ export default {
         .catch((error) => console.log(error, 'Error'))
     },
     checkout() {
-      this.order.carts = this.carts
-      axios
-        .post('http://localhost:3000/orders', this.order)
-        .then(() => {
-          // hapus semua keranjang
-          this.carts.map(function (item) {
-            return axios
-              .delete('http://localhost:3000/carts/' + item.id)
-              .catch((error) => console.log(error, 'Error'))
+      if (this.order.name && this.order.table_number) {
+        this.order.carts = this.carts
+        axios
+          .post('http://localhost:3000/orders', this.order)
+          .then(() => {
+            // hapus semua keranjang
+            this.carts.map(function (item) {
+              return axios
+                .delete('http://localhost:3000/carts/' + item.id)
+                .catch((error) => console.log(error, 'Error'))
+            })
+            this.$router.push({ path: '/order-success' })
+            console.log('berhasil')
           })
-          this.$router.push({ path: '/order-success' })
-          console.log('berhasil')
-        })
-        .catch((err) => console.log('error', err))
+          .catch((err) => console.log('error', err))
+      } else {
+        postMessage('Data harus di isi')
+        console.log('Data gagal')
+      }
     },
   },
   mounted() {

@@ -94,14 +94,19 @@ export default {
       this.product = data
     },
     orderProduct() {
-      this.order.products = this.product
-      axios
-        .post('http://localhost:3000/carts', this.order)
-        .then(() => {
-          this.$router.push({ path: '/carts' })
-          console.log('berhasil')
-        })
-        .catch((err) => console.log('error', err))
+      if (this.order.total_order) {
+        this.order.products = this.product
+        axios
+          .post('http://localhost:3000/carts', this.order)
+          .then(() => {
+            this.$router.push({ path: '/carts' })
+            console.log('berhasil')
+          })
+          .catch((err) => console.log('error', err))
+      } else {
+        postMessage('Data harus di isi')
+        console.log('Data gagal')
+      }
     },
   },
   mounted() {
